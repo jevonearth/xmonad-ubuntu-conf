@@ -200,12 +200,21 @@ myKeyBindings =
   [
     ((myModMask, xK_b), sendMessage ToggleStruts)
     , ((myModMask, xK_a), sendMessage MirrorShrink)
+-- Lock the screen using xscreensaver.
+    , ((myModMask .|. controlMask, xK_l), spawn "gnome-screensaver-command -l")
     , ((myModMask, xK_z), sendMessage MirrorExpand)
     , ((myModMask, xK_p), spawn "synapse")
     , ((myModMask, xK_u), focusUrgent)
     , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
+    -- Take full screenshot in multi-head mode.
+    -- That is, take a screenshot of everything you see.
+    , ((myModMask .|. controlMask .|. shiftMask, xK_s), spawn "screenshot")
+    -- Take a screenshot in select mode.
+    -- After pressing this key binding, click a window, or draw a rectangle with
+    -- the mouse.
+    , ((myModMask .|. shiftMask, xK_s), spawn "select-screenshot")
   ]
 
 
