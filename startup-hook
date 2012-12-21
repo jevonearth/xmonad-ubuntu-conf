@@ -32,6 +32,13 @@ fi
 if [ -z "$(pgrep dropbox)" ] ; then
     dropbox start &
 fi
+
+# HP Sys tray icon
+if [ -z "$(pgrep hp-systray)" ] ; then
+	python /usr/bin/hp-systray --force-startup
+fi
+ 
+
 # # /shutter
 # if [ -z "$(pgrep shutter)" ] ; then
 #     shutter &
